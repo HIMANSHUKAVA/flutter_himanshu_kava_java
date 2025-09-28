@@ -1,0 +1,120 @@
+package main.dao;
+
+import java.sql.DriverManager;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.tomcat.util.log.UserDataHelper.Mode;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
+
+import main.Model;
+
+public class Dao {
+
+	
+	
+	public static Connection getConnec()
+	{
+		Connection con = null;
+		
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/cod", "root", "");
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		return con;
+	}
+	
+	public static  int savedeta(Model m)
+	{
+		int status=0;
+		
+		Connection con =  Dao.getConnec();
+		
+		try
+		{
+			PreparedStatement ps = (PreparedStatement) con.prepareStatement("insert into person(name , email , address , mobail) value(?,?,?,?)");
+			ps.setString(1, m.getName());
+			ps.setString(2, m.getEmail());
+			ps.setString(3, m.getAddress());
+			ps.setString(4, m.getPhone());
+			
+			status = ps.executeUpdate();
+			
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return status;
+	}
+	
+	
+	public static List<Model>viewall()
+	{
+		
+		Connection con = Dao.getConnec();
+		
+		List<Model>s =  new ArrayList<>();
+		
+		try
+		{
+			PreparedStatement ps =  (PreparedStatement) con.prepareStatement("select * from person");
+			ResultSet rs =  (ResultSet) ps.executeQuery();
+			
+			
+			Model m = new Model();
+			while(rs.next())
+			{
+				
+			   m.setId(rs.getInt("id"));
+				m.setName(rs.getString("name"));
+				m.setEmail(rs.getString("email"));
+				m.setAddress(rs.getString("address"));
+				m.setPhone(rs.getString("mobail"));
+				
+				s.add(m);
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		
+		return  s;
+	}
+	
+	
+	public static int deleaatdeta(int id)
+	{
+		Connection con =  Dao.getConnec();
+		
+		int status=0;
+		
+		try
+		{
+			PreparedStatement ps =  (PreparedStatement) con.prepareStatement("delete from person where id = ?");
+			ps.setInt(1,id);
+			
+			
+			status =  ps.executeUpdate();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return status;
+	}
+}

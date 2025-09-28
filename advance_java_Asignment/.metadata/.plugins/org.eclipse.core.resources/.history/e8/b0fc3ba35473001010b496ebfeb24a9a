@@ -1,0 +1,61 @@
+package main;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.coyote.Request;
+
+@WebServlet("emailsendingservlet")
+public class emailsendingservlet extends HttpServlet
+{
+
+	String resendmessage="";
+	String host,port,user,pass;
+	
+	
+	private void init()
+	{
+		// TODO Auto-generated method stub
+         
+    
+		ServletContext contex =  getServletContext();
+		
+		host =  contex.getInitParameter("host");
+		port =  contex.getInitParameter("port");
+		user =  contex.getInitParameter("user");
+		pass =  contex.getInitParameter("pass");
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		PrintWriter out = resp.getWriter();
+		
+		String recipint = (String) req.getAttribute("email");
+		String content = req.getAttribute("n1").toString()+req.getAttribute("n2").toString()+req.getAttribute("n3").toString()+req.getAttribute("n3").toString();
+	    String subnject="welcome our website";
+		
+	    
+	    try
+	    {
+	    	EmailUtility.sendEmail(host, port, user, pass, recipint, content, subnject);
+	    	System.out.println("Send the mail");
+	    }
+	    catch(Exception e)
+	    {
+	    	e.printStackTrace();
+	    }
+		
+		
+		
+	}
+
+	
+}

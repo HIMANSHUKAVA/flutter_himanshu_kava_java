@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Thu Jul 31 16:05:36 IST 2025
+org.eclipse.jst.jee.server\:/binary\:E\:\\newspring\\crud_operetion-1\\src\\main\\webapp\\WEB-INF\\lib\\spring-web-4.0.2.RELEASE.jar=WEB-INF/lib/spring-web-4.0.2.RELEASE.jar
+org.eclipse.jst.jee.server\:/binary\:E\:\\newspring\\user_admin_systerm\\src\\main\\webapp\\WEB-INF\\lib\\spring-web-4.0.2.RELEASE.jar=WEB-INF/lib/spring-web-4.0.2.RELEASE.jar

@@ -1,0 +1,24 @@
+package main;
+
+import javax.servlet.ServletContext;
+import javax.servlet.annotation.WebServlet;
+
+import org.apache.coyote.Request;
+
+@WebServlet("emailsendingservlet")
+public class emailsendingservlet 
+{
+
+	String host="";
+	String port="";
+	String user="";
+	String pass="";
+	
+	private void init() {
+		// TODO Auto-generated method stub
+		
+		ServletContext context =  
+
+	}
+	
+}

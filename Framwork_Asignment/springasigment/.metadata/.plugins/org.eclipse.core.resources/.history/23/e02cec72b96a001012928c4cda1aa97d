@@ -1,0 +1,15 @@
+package main.Dao;
+
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import main.model.Person;
+
+public class dao extends HibernateDaoSupport
+{
+
+	public void insertdeta(Person p)
+	{
+		this.getHibernateTemplate().save(p);
+	}
+	
+}

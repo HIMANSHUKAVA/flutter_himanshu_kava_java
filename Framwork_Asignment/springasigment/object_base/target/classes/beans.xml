@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define your beans here -->
+
+
+    <bean id="s2" class="main.model.person">
+    
+    <property name="id" value="1"/>
+    <property name="name" value="himanshu"/>
+    <property name="add" ref="s1"/>
+    
+    </bean>
+
+  <bean id="s1"  class="main.model.address">
+   
+   <property name="city" value="bhavnagar"/>
+   <property name="pincode" value="364270"/>
+   
+  
+  </bean>
+    
+
+</beans>

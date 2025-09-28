@@ -1,0 +1,39 @@
+package main;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/servlet2")
+public class servlet2  extends HttpServlet
+{
+
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
+	{
+
+
+		String name;
+		Cookie[] s = req.getCookies();
+		
+		if (s != null) {
+	        for (Cookie c : s) {
+	            if (c.getName().equals("name")) {
+	                name = c.getValue();
+	            }
+	        }
+	    }
+		
+		System.out.println(name);
+		
+	}
+
+	
+	
+}

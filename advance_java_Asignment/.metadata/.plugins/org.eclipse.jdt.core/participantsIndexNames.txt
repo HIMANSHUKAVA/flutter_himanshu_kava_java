@@ -1,0 +1,17 @@
+INDEX VERSION 1.134
+E:\advance_java_Asignment\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\274425867.index
+\fetch_data_using_jstl\src\main\java
+E:\advance_java_Asignment\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2853051810.index
+\jsp_crud\src\main\java
+E:\advance_java_Asignment\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2731015515.index
+\form_validetion\src\main\java
+E:\advance_java_Asignment\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\684165459.index
+\sessioncokie\src\main\java
+E:\advance_java_Asignment\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2299999739.index
+\fetchdetausingjsp\src\main\java
+E:\advance_java_Asignment\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1415207020.index
+\fetch_data_using_expression_language\src\main\java
+E:\advance_java_Asignment\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3782042150.index
+\form_validetion\src\main\java
+E:\advance_java_Asignment\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1598662974.index
+\ragisterform\src\main\java

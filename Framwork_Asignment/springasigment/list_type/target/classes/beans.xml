@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+         
+<bean id="student1" class="main.model.person">
+
+<property name="id" value="1"/>
+<property name="fname" value="kava"/>
+<property name="lname" value="himanshu"/>
+<property name="email" value="kavahimanshu24@gmail.com"/>
+<property name="mobail" value="98457126"></property>
+
+</bean>
+
+
+
+<bean id="student2" class="main.model.person">
+
+<property name="id" value="2"/>
+<property name="fname" value="makwana"/>
+<property name="lname" value="naitik"/>
+<property name="email" value="makwananaitik24@gmail.com"/>
+<property name="mobail" value="98457127"></property>
+
+</bean>
+
+
+
+<bean id="student3" class="main.model.person">
+
+<property name="id" value="1"/>
+<property name="fname" value="parmar"/>
+<property name="lname" value="jagruti"/>
+<property name="email" value="jagruti24@gmail.com"/>
+<property name="mobail" value="98457116"></property>
+
+</bean>
+
+
+
+<bean id="student4" class="main.model.person">
+
+<property name="id" value="4"/>
+<property name="fname" value="gohil"/>
+<property name="lname" value="aekta"/>
+<property name="email" value="aekta24@gmail.com"/>
+<property name="mobail" value="98457126"></property>
+
+</bean>
+
+
+<bean id="student5" class="main.model.person">
+
+<property name="id" value="5"/>
+<property name="fname" value="patel"/>
+<property name="lname" value="het"/>
+<property name="email" value="het24@gmail.com"/>
+<property name="mobail" value="98451126"></property>
+
+</bean>
+
+
+
+<bean id="list" class="main.model.listhandler">
+
+<property name="l">
+<list>
+
+   <ref bean="student1"/>
+   <ref bean="student2"/>
+   <ref bean="student3"/>
+   <ref bean="student4"/>
+   <ref bean="student5"/>
+   
+
+</list>
+ </property>
+
+
+
+
+
+
+</bean>
+
+
+
+</beans>

@@ -1,0 +1,32 @@
+package main.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import main.model.Product;
+import main.service.Prodcurtservicec;
+import main.service.categoryservice;
+
+@Controller
+public class productcontroller
+{
+
+	@Autowired
+	Prodcurtservicec ser;
+	
+	@Autowired
+	categoryservice ser1;
+	
+	@GetMapping("/")
+	public String sdeta(Model modal)
+	{
+		
+		modal.addAllAttributes("product" , new Product());
+		
+		return null;
+	}
+	
+	
+}

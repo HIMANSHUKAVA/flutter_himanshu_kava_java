@@ -1,0 +1,10 @@
+127.0.0.1 - - [31/Jul/2025:16:06:00 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [31/Jul/2025:16:06:03 +0530] "GET /crud_operetion-1/ HTTP/1.1" 200 6824
+0:0:0:0:0:0:0:1 - - [31/Jul/2025:16:06:03 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [31/Jul/2025:16:06:33 +0530] "POST /crud_operetion-1/addEmployee HTTP/1.1" 200 8405
+0:0:0:0:0:0:0:1 - - [31/Jul/2025:16:06:40 +0530] "POST /crud_operetion-1/edit HTTP/1.1" 200 1301
+0:0:0:0:0:0:0:1 - - [31/Jul/2025:16:06:49 +0530] "POST /crud_operetion-1/updateEmployee HTTP/1.1" 200 8402
+0:0:0:0:0:0:0:1 - - [31/Jul/2025:16:06:58 +0530] "POST /crud_operetion-1/deleat HTTP/1.1" 200 6824
+0:0:0:0:0:0:0:1 - - [31/Jul/2025:16:07:32 +0530] "GET /user_admin_systerm/ HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [31/Jul/2025:16:07:32 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [31/Jul/2025:16:07:47 +0530] "GET /user_admin_systerm/ HTTP/1.1" 404 682

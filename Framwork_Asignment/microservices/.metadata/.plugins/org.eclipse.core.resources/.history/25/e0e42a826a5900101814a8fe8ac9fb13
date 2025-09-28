@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+ <h1 style="text-align: center;">product details</h1>
+ 
+ 
+ <table border="1">
+ 
+ 
+ <thead>
+ 
+  <tr>
+  
+       <th>Id</th>
+       <th>ProductName</th>
+       <th>Price</th>
+       <th>Category</th>
+  
+  </tr>
+ 
+  <tbody>
+  
+  
+       <tr th:each ="cat : ${deta}">
+       
+        <td th:text="${cat.id}"></td>
+        <td th:text="${cat.name}"></td>
+        
+       
+       </tr>
+  
+  
+  </tbody>
+ 
+ 
+ </thead>
+ 
+ </table>
+
+
+
+</body>
+</html>

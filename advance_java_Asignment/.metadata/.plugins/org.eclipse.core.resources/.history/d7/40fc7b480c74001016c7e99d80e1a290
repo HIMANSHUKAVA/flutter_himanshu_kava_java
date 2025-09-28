@@ -1,0 +1,66 @@
+package main;
+
+import java.awt.Taskbar.State;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.DriverManager;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+@WebServlet("/SendMessageServlet")
+public class SendMessageServlet  extends HttpServlet
+{
+
+@Override
+protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+{
+	
+	resp.setContentType("text/html");
+	PrintWriter out = resp.getWriter();
+	
+	HttpSession session = req.getSession();
+	
+	String recivermail =  req.getParameter("receiver");
+	session.setAttribute("reciver", recivermail);
+	String message =  req.getParameter("message");
+	String sender =  session.getAttribute("email").toString();
+	
+	try
+	{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con =  (Connection) DriverManager.getConnection("jdbc:mysql://localhost/cod", "root", "");
+		PreparedStatement ps = (PreparedStatement) con.prepareStatement("insert into message (sender , reciver,message) values(?,?,?)");
+		ps.setString(1, sender);
+		ps.setString(2, recivermail);
+		ps.setString(3, message);
+		
+		int status =  ps.executeUpdate();
+		
+		if(status>0)
+		{
+			out.println("message sent successfully");
+			resp.sendRedirect("dashboard.jsp");
+		}
+		else
+		{
+			resp.sendRedirect("message.jsp");
+		}
+	}
+	catch(Exception e)
+	{
+		e.printStackTrace();
+	}
+	
+	
+}	
+	
+	
+}

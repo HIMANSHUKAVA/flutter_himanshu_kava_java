@@ -1,0 +1,51 @@
+package main.bo;
+
+import java.util.List;
+
+import main.dao.Dao;
+import main.model.Person;
+
+public class Bo
+{
+
+	Dao dao;
+	
+	public void insertdeta(Person p)
+	{
+		dao.insertdeta(p);
+	}
+	
+	public void deleatdeta(Person p)
+	{
+		dao.deleatdeta(p);
+	}
+	
+	public List<Person>viewall()
+	{
+	return 	dao.viewall();
+	}
+	
+	public void updetdeta(int id , Person p)
+	{
+		dao.updetdeta(id , p);
+	}
+	public Person singledeta(Person p)
+	{
+		return dao.singledeta(p);
+	}
+
+	public Dao getDao() {
+		return dao;
+	}
+
+	public void setDao(Dao dao) {
+		this.dao = dao;
+	}
+	
+	
+	
+	
+	
+	
+
+}

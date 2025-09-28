@@ -1,0 +1,64 @@
+package main;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.coyote.Request;
+
+@WebServlet("/emailsendingservlet")
+public class emailsendingservlet extends HttpServlet
+{
+
+	String resendmessage="";
+	String host,port,user,pass;
+	
+	
+	public void init() throws ServletException
+	{
+		// TODO Auto-generated method stub
+         
+    
+		ServletContext contex =  getServletContext();
+		
+		host =  contex.getInitParameter("host");
+		port =  contex.getInitParameter("port");
+		user =  contex.getInitParameter("user");
+		pass =  contex.getInitParameter("pass");
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	    PrintWriter out = resp.getWriter();
+
+
+	    HttpSession session = req.getSession();
+
+	    String recipint = (String) session.getAttribute("email");
+	    String subject = "Welcome to our website";
+
+	    String content = 
+	        session.getAttribute("n1").toString() +
+	        session.getAttribute("n2").toString() +
+	        session.getAttribute("n3").toString() +
+	        session.getAttribute("n4").toString();
+
+	    try {
+	        EmailUtility.sendEmail(host, port, user, pass, recipint, content, subject);
+	        System.out.println("Mail sent successfully to: " + recipint);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        out.println("Failed to send mail: " + e.getMessage());
+	    }
+	}
+
+
+	
+}

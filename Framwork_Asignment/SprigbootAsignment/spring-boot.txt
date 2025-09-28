@@ -1,0 +1,62 @@
+1. What is Spring Boot and what are its Benefits?
+
+-> spring boot is framework of java
+-> he is most powerful framework compare then other framework
+-> this framework buid in 2003
+
+they are many advantage of this framework
+ 1) easy to way
+ 2) security
+ 3) fast load etc
+
+2. Why Spring Boot is preferred over any otherframework? 
+
+some many reason for highly prefare this framework
+
+1) auto configuretion'
+2) no xml configretion
+3) server autometicly install
+4) easy testing etc
+
+3. What are the key dependencies of Spring Boot?
+
+ spring-boot-starter-parent
+ spring-boot-starter-web
+ spring-boot-starter-data-jpa
+ spring-boot-starter-security
+ spring-boot-starter-test
+ spring-boot-starter-devtol
+
+4. What are the advantages of Spring Boot?
+
+1) auto configuretion'
+2) no xml configretion
+3) server autometicly install
+4) easy testing etc
+
+5. What are the features of Spring Boot?
+
+1) auto configuration
+2) starter dependency
+3) server include
+4) spring boot cli
+
+6. How do you create a Spring Boot application using Maven?
+
+there are three way to create spring boot application
+ 
+using spring intilizetion
+Manually via Maven
+using cli
+
+7. what are the Spring Boot Annotations?
+
+annotation are easy to way for application
+they are provide some inbuid feature
+like
+1) @controller
+2) @restcontroller
+3) @email etc
+
+
+

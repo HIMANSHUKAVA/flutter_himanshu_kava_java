@@ -1,0 +1,40 @@
+package main.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import main.model.Category;
+import main.repository.CategoryRepo;
+import main.service.categoryservice;
+
+@Controller
+public class CategoryController 
+{
+
+		CategoryRepo ser;
+	
+		@GetMapping("/categorysaveform")
+		public String categoryForm(Model model) {
+		    model.addAttribute("category", new Category()); // अगर आप फॉर्म में डेटा भेजना चाहें
+		    return "categorysave"; // ✅ अब view का नाम URL से अलग है
+		}
+
+	
+     @PostMapping("/save_category")
+     public String sdeta(@ModelAttribute Category c)
+     {
+         ser.save(c);
+    	return "categorysave";
+     }
+     
+    
+
+     
+}

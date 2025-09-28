@@ -1,0 +1,84 @@
+package main;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.DriverManager;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+@WebServlet("/verifyotp")
+public class verifyotp extends HttpServlet
+{
+
+
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
+	{
+		System.out.println("hello");
+		
+		HttpSession session =  req.getSession();
+		String email =  (String) session.getAttribute("email");
+		String password =  (String) session.getAttribute("pass");
+		
+		String otp = req.getParameter("otp");
+		String sessionotp=
+				session.getAttribute("n1").toString() +
+				session.getAttribute("n2").toString() +
+				session.getAttribute("n3").toString() +
+				session.getAttribute("n4").toString() ;
+						
+		
+		
+		resp.setContentType("text/html");
+		PrintWriter out  = resp.getWriter();
+		
+		
+		if(otp.equals(sessionotp))
+		{
+			try
+			{
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/cod","root","");
+				PreparedStatement ps =  (PreparedStatement) con.prepareStatement("insert into s (email,password) values (?,?)");
+				ps.setString(1, email);
+				ps.setString(2, password);
+				
+				int status =  ps.executeUpdate();
+				
+				if(status>0)
+				{
+					System.out.println("success");
+					resp.sendRedirect("login.jsp");
+				}
+				else
+				{
+					System.out.println("fail");
+					resp.sendRedirect("index.jsp");
+				}
+				
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			out.println("otp is wrong please try again");
+			resp.sendRedirect("index.jsp");
+		}
+		
+				
+	}
+	
+	
+}

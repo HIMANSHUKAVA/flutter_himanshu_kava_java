@@ -1,0 +1,9 @@
+package com.main;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/fetchservlet")
+public class fetchservlet 
+{
+
+}

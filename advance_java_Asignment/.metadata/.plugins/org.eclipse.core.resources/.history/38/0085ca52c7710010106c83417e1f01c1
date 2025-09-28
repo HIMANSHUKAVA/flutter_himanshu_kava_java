@@ -1,0 +1,57 @@
+package main.dao;
+
+import java.sql.DriverManager;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+
+import main.Model;
+
+public class Dao {
+
+	
+	
+	public static Connection getConnec()
+	{
+		Connection con = null;
+		
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/cod", "root", "");
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		return con;
+	}
+	
+	public static  int savedeta(Model m)
+	{
+		int status=0;
+		
+		Connection con =  Dao.getConnec();
+		
+		try
+		{
+			PreparedStatement ps = (PreparedStatement) con.prepareStatement("insert into person(name , email , address , mobail) value(?,?,?,?)");
+			ps.setString(1, m.getName());
+			ps.setString(2, m.getEmail());
+			ps.setString(3, m.getAddress());
+			ps.setString(4, m.getPhone());
+			
+			status = ps.executeUpdate();
+			
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return status;
+	}
+	
+}

@@ -1,0 +1,49 @@
+package main.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import main.model.Person;
+
+@org.springframework.stereotype.Controller
+public class Controller
+{
+
+	@RequestMapping("/")
+	public String homecontroller()
+	{
+		return "index";
+	}
+	
+	@RequestMapping("/addEmployee")
+	public String insertdeta(HttpServletRequest request , HttpServletResponse response)
+	{
+		
+		String name =  request.getParameter("name");
+		String email =  request.getParameter("email");
+		String adress = request.getParameter("address");
+		String phone =  request.getParameter("phone");
+		
+		
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
+		applicationContext.getBean("s2");
+		
+		Person person = new Person();
+		person.setName(name);
+		person.setAddress(adress);
+		person.setEmail(email);
+		person.setPhone(phone);
+		
+		return null;
+		
+	}
+	
+	
+	
+	
+	
+}

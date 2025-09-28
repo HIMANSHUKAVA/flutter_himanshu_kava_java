@@ -1,0 +1,55 @@
+<%@page import="main.model.Person"%>
+<%@page import="org.springframework.context.support.ClassPathXmlApplicationContext"%>
+<%@page import="main.bo.Bo"%>
+<%@page import="org.springframework.context.ApplicationContext"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+ApplicationContext ap =new ClassPathXmlApplicationContext("beans.xml");
+Bo bo = ap.getBean("s2", Bo.class);
+
+String id =  request.getParameter("id");
+
+int id1 = Integer.parseInt(id); 
+Person p =  bo.singledeta(id);
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Edit Employee</h2>
+    <form action="updateEmployee" method="post">
+        <input type="hidden" name="id" value="<%= p.getId() %>">
+
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" value="<%= p.getName() %>" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" value="<%= p.getEmail() %>" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label>Address</label>
+            <textarea name="address" class="form-control" required><%= p.getAddress() %></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" name="phone" value="<%= p.getPhone() %>" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="home.jsp" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+</body>
+</html>

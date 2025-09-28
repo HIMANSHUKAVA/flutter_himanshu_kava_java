@@ -1,0 +1,40 @@
+package main.dao;
+
+import java.util.List;
+
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import main.model.Person;
+
+public class Dao  extends HibernateDaoSupport
+{
+
+	public void insertdeta(Person p)
+	{
+		this.getHibernateTemplate().save(p);
+	}
+	
+	public void deleatdeta(Person p)
+	{
+		this.getHibernateTemplate().delete(p);
+	}
+	
+	public List<Person>viewall()
+	{
+	List<Person>sList = 	this.getHibernateTemplate().find("from Person");
+	
+	return sList;
+	}
+	
+	public void updetdeta(int id , Person p)
+	{
+		p.setId(id);
+		
+		this.getHibernateTemplate().update(p);
+	}
+	
+	public Person singledeta(Person p)
+	{
+		Person s1 =  this.getHibernateTemplate().get(Person.class, p.getId());
+	}
+}

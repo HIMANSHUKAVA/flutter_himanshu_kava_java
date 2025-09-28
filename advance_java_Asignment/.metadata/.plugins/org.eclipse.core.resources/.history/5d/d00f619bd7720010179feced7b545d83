@@ -1,0 +1,23 @@
+package main;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+
+import org.apache.coyote.Request;
+
+@WebServlet("emailsendingservlet")
+public class emailsendingservlet 
+{
+
+	String resendmessage="";
+	String host,port,user,pass;
+	
+	private void init() throws ServletException
+	{
+		// TODO Auto-generated method stub
+
+		
+		ServletContext session = getServletContext();
+	}
+}

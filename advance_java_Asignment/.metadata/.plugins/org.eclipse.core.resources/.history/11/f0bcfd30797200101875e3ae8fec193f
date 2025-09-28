@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<script type="text/javascript" >
+
+  var request =  new XMLHttpRequest();
+
+     function serchinfo() 
+    {
+	
+    	 
+    	 var name =  document.vinform.email.value;
+    	 var url = "ajexserch.jsp?name="+name;
+    	 
+    	 try
+    	 {
+    		 request.onreadystatechange=function()
+    		 {
+                if(request.readyState==4)
+                	{
+                       var val = request.responsetext();
+                       document.getElementById('tops').innerHTML=val
+                       
+                	}
+    		 }
+    		 
+    		 request.open("GET",url,true);
+    		 request.send();
+    	 }
+    	 catch(e)
+    	 {
+
+    		 alert("unable to connect");
+    	 }
+    	 
+    	 
+	}
+</script>
+<body class="bg-light">
+
+   <form name="vinform">
+	Enter Email For Registration <input type="email" name="name" onblur="searchinfo()">  
+</form>  
+<span id="tops"></span>  
+   
+</body>
+</html>

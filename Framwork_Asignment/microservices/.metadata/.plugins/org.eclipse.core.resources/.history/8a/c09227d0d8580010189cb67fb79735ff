@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <h1 style="text-align: center;">Product Add Form</h1>
+ 
+ <form action="/save_productt">
+ 
+       <input type="text" placeholder="Enter The Product Name" name="name" id="name">
+       <br>
+       <input type="text" placeholder="Enter The Product Price" name="price" id="price">
+       <br>
+    <select name="category.id" required>
+        <option value="">--चुनें--</option>
+        <th:block th:each="cat : ${categories}">
+            <option th:value="${cat.id}" th:text="${cat.name}"></option>
+        </th:block>
+    </select><br><br>
+ 
+ </form>
+</body>
+</html>

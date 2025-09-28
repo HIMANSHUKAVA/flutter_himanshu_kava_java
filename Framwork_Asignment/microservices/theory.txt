@@ -1,0 +1,65 @@
+1) How to configure microservicesin Spring Boot?
+
+->every microservices are different boot applications
+->database infrometion set in application.yml
+->main class start in @springbootapplication
+
+
+2)Is Spring Boot suitable for microservices?
+
+->yes springoot suitable for micriservice
+because he is 1)auto-configure , embedded server etc
+
+3) How do microservices work in Spring Boot?
+
+-> in microservice architecture spereat boot application
+-> this app store your db and api
+
+4)How to communicate two microservices?
+-> there are two way
+1) directcall
+2) message based
+
+5) What is a load balancer in microservices?
+
+A load balancer distributes incoming requests across multiple service instances.
+Example: If user-service has 3 instances running, the load balancer will send requests to different instances.
+Tools: Ribbon (deprecated), Spring Cloud LoadBalancer, Nginx, Kubernetes Service.
+
+6) What is Spring Boot microservices architecture?
+
+1) config server
+2) eureka
+3) api
+4) microservices
+5) load balancer
+
+
+7) Can 2 microservices have the same database?
+
+Theoretically yes, but in practice  not recommended.
+Each microservice should have its own database to remain independent.
+But in legacy systems, 2 services may share one database if needed.
+
+8) What is Eureka in microservices?
+
+
+Eureka is Netflix’s Service Discovery Server.
+
+Services register themselves in Eureka.
+
+Other services fetch service details from Eureka to connect.
+
+Helps in dynamic scaling and load balancing.
+
+
+9) Is REST API a microservice?
+
+no
+
+10) Is every API a microservice?
+
+no
+
+
+

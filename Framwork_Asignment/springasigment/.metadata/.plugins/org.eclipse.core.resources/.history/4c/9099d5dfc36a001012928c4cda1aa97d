@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="main.model.Person" table="person">
+
+        <!-- Primary Key -->
+        <id name="id" column="id" type="int">
+            <generator class="identity"/>
+        </id>
+
+        <!-- Other columns -->
+        <property name="name" column="name" type="string"/>
+        <property name="email" column="email" type="string"/>
+        <property name="address" column="address" type="string"/>
+        <property name="phone" column="phone" type="string"/>
+
+    </class>
+</hibernate-mapping>
